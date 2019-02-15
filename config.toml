@@ -48,10 +48,6 @@ defaultContentLanguage = "zh-cn"           # Default language to use
   weight = 40
   identifier = "categories"
   url = "/categories/"
-[[menu.main]]
-  name = "external-link"
-  weight = 50
-  url = "https://gohugo.io"
 
 
 [params]
@@ -61,7 +57,7 @@ defaultContentLanguage = "zh-cn"           # Default language to use
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
   logoTitle = "Lok'Tar oga"        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["Hugo", "theme","jane"]
+  keywords = ["java", "programing","python","note"]
   description = "有两娃的程序员一枚"
 
   # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
@@ -84,4 +80,3 @@ defaultContentLanguage = "zh-cn"           # Default language to use
     g-github = "https://github.com/zhouxwyeah"
     i-zhihu = "https://www.zhihu.com/people/zhouxwyeah"
     j-douban = "https://www.douban.com/people/garfiled/"
-    q-bilibili = "https://space.bilibili.com/91795775"

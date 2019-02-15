@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>官方文档 on 羊 花卷 小鱼</title>
+    <link>http://huajuan.io/categories/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</link>
+    <description>Recent content in 官方文档 on 羊 花卷 小鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 15 Feb 2019 10:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://huajuan.io/categories/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dockerfile 最佳实践</title>
+      <link>http://huajuan.io/post/best-dockerfile/</link>
+      <pubDate>Fri, 15 Feb 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/best-dockerfile/</guid>
+      <description>Docker 官方有关于Dockerfile最佳实践的一些推荐,有兴趣可查看链接 最佳实践</description>
+    </item>
+    
+  </channel>
+</rss>
