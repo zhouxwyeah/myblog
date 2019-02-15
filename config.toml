@@ -48,6 +48,11 @@ defaultContentLanguage = "zh-cn"           # Default language to use
   weight = 40
   identifier = "categories"
   url = "/categories/"
+[[menu.main]]
+  name = "RSS"
+  weight = 60
+  identifier = "订阅"
+  url = "http://huajuan.io/index.html"
 
 
 [params]
