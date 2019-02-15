@@ -10,15 +10,9 @@ comment: false
 mathjax: false
 ---
 
-Hugo is a static site engine written in Go.
+10余年魔都程序员，熟悉银行领域，熟悉java , 偶尔写写 python,go,js
 
+国米球迷，电竞爱好者，看各类电竞比赛，暴雪粉丝，FM玩家，叶公好主机，有两娃，没太多时间玩,偶尔摸摸switch
 
-It makes use of a variety of open source projects including:
-
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+兴趣广泛，好读书，不求甚解
 
