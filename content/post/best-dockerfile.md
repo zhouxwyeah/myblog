@@ -7,7 +7,7 @@ draft: false                       # 是否是草稿？
 tags: ["Docker", "官方文档"]  # 标签
 categories: ["tech"]              # 分类
 author: "zhouxwyeah"                  # 作者
-
+description: "Dockerfile通用规则以及指令的最佳实践，减少镜像大小和使用误区"
 # 用户自定义
 # 你可以选择 关闭(false) 或者打开(true) 以下选项
 comment: false   # 关闭评论
