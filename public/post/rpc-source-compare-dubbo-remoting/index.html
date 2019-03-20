@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>404 page not found - 羊 花卷 小鱼</title>
+  <title>Dubbo remoting 源码阅读笔记 - 羊 花卷 小鱼</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,8 +22,8 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="bear" />
-  <meta name="description" content="有两娃的程序员一枚" />
+<meta name="author" content="zhouxwyeah" /><meta name="description" content="Dockerfile通用规则以及指令的最佳实践，减少镜像大小和使用误区" />
+
   <meta name="keywords" content="java, programing, python, note" />
 
 
@@ -34,7 +34,7 @@
 <meta name="generator" content="Hugo 0.54.0" />
 
 
-<link rel="canonical" href="" />
+<link rel="canonical" href="http://huajuan.io/post/rpc-source-compare-dubbo-remoting/" />
 
 
 
@@ -56,18 +56,27 @@
 
 
 
-<meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="有两娃的程序员一枚" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="" />
+<meta property="og:title" content="Dubbo remoting 源码阅读笔记" />
+<meta property="og:description" content="Dockerfile通用规则以及指令的最佳实践，减少镜像大小和使用误区" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://huajuan.io/post/rpc-source-compare-dubbo-remoting/" />
+<meta property="article:published_time" content="2019-03-20T10:01:23&#43;08:00"/>
+<meta property="article:modified_time" content="2019-03-20T10:01:23&#43;08:00"/>
+
+<meta itemprop="name" content="Dubbo remoting 源码阅读笔记">
+<meta itemprop="description" content="Dockerfile通用规则以及指令的最佳实践，减少镜像大小和使用误区">
 
 
-<meta itemprop="name" content="404 Page not found">
-<meta itemprop="description" content="有两娃的程序员一枚">
+<meta itemprop="datePublished" content="2019-03-20T10:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-03-20T10:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="2512">
 
+
+
+<meta itemprop="keywords" content="Dubbo,rpc," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="有两娃的程序员一枚"/>
+<meta name="twitter:title" content="Dubbo remoting 源码阅读笔记"/>
+<meta name="twitter:description" content="Dockerfile通用规则以及指令的最佳实践，减少镜像大小和使用误区"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -318,21 +327,217 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<div class="not-found">
-  <h1 class="error-emoji"></h1>
-  <p class="error-text">/* 404 page not found. */</p>
-  <p class="error-link"><a href="/">↑ Back Home ↑</a></p>
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Dubbo remoting 源码阅读笔记</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-03-20" class="post-time">
+          2019-03-20
+        </time>
+        <div class="post-category">
+            <a href="http://huajuan.io/categories/tech/"> tech </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#初始化">初始化</a></li>
+<li><a href="#server">server</a></li>
+<li><a href="#client">client</a></li>
+</ul></li>
+<li><a href="#remoting-api设计">Remoting API设计</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
 </div>
-<script>
-  var errorEmojiContainer = document.getElementsByClassName('error-emoji')[0];
-  var emojiArray = [
-    '\\(o_o)/', '(o^^)o', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)',
-    '(=\'X\'=)', '(>_<)', '(;-;)', '\\(^Д^)/',
-  ];
-  var errorEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length)];
-  errorEmojiContainer.appendChild(document.createTextNode(errorEmoji));
-</script>
+
+    
+    <div class="post-content">
+      
+
+<p>#Dubbo源码阅读 —  remoting</p>
+
+<p>Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个分析这个模块的职责和设计，然后再从整体入手，看看整个框架的整体设计，首先选择的是remoting模块，了解一下作为一个RPC框架网络部分的设计思路：</p>
+
+<p>先上图吧，网络部分初始化和server/client流程：</p>
+
+<h4 id="初始化">初始化</h4>
+
+<p><img src="./image-20190320081611898.png" alt="image-20190320081611898" /></p>
+
+<h4 id="server">server</h4>
+
+<p><img src="image-20190320111600853.png" alt="image-20190320111600853" /></p>
+
+<h4 id="client">client</h4>
+
+<p><img src="image-20190320114311471.png" alt="image-20190320114311471" /></p>
+
+<h3 id="remoting-api设计">Remoting API设计</h3>
+
+<p>API定义了远程通讯的领域对象，其实spring cloud的做法也是类似，定义远程通信行为，而隐藏实现，以便可以方便的切换实现，我们来看下RPC框架的remoting应该一些常见角色：</p>
+
+<ol>
+<li><p>api 首先定义远程通讯的通用模型</p>
+
+<ul>
+<li>Endpoint  所有的remoting都是一个端点，每个端点都包含URL,handler,发送</li>
+<li>Server     远程服务端,拥有所有的连接、</li>
+<li>Client      远程客户端</li>
+<li>Channel  一条传输通道</li>
+<li>ChannelHandler  通讯处理类，包含 收、发、连接、断链等通用操作，典型<strong>装饰者模式</strong>，支持增强handler的能力</li>
+<li>Dispatch   事件派发器，处理事件的入口，由Dispatch调用handler处理event</li>
+<li>Buffer         IO</li>
+<li>Codec        编码解码</li>
+<li>Transport  传输层的定义，通过SPI获取对应的transport,然后通过transport绑定server，或者发起连接Client</li>
+<li>Transports  定义了Transport的facade方法，如果传入多个handlers，使用ChannelHandlerDispatch</li>
+</ul></li>
+
+<li><p>transport  定义网络传输基础模型的抽象业务逻辑</p>
+
+<ul>
+<li>AbstractPeer   抽象的peer，具备一般收发、关闭的能力</li>
+<li>AbstractEndpoint  增加了 codec</li>
+<li>AbstractServer     指定了InetSocketAddress ,以及指定了ExecutorService,定义了IdleTimeout、最大连接数，open ,  disconnect服务</li>
+<li>AbstractClient      含定时重连服务、ExecutorService，url指定线程名称，连接时启动检查的定时任务，在连接关闭时，销毁连接检查服务,连接、关闭等服务</li>
+<li>AbstractCodec      payload检查，序列化类的注入</li>
+<li>ChannelHandlerDispatch   Dispatch调用对应的Handler,handler链式调用，支持新增或者删除handler，使用CopyOnWriterList实现</li>
+<li>ChannelHandlers   链式包含  批量消息处理、心跳消息处理、之后才是业务消息Dispatch，使用默认的Dispatch派发事件和Handler</li>
+<li>DecodeHandler 编码解码处理器，会作为最顶层处理器注入到server</li>
+<li>Dispatch 服务端事件派发模型   All 全部线程池处理    Direct IO线程处理    Message请求响应都是线程池，其他IO线程处理  Execute 请求线程池处理 Dispatch的线程池对应Reactor中的业务线程</li>
+<li>ChannelEventRunner    Event异步task</li>
+</ul></li>
+
+<li><p>exchange 在传统的网络通讯的基础上，定义信息交换的方式，采用了<a href="https://en.wikipedia.org/wiki/Messaging_pattern">消息交换模式</a>描述整套远程信息交互方式，具有以下角色：</p>
+
+<ul>
+<li><p>ExchangeServer   服务端绑定URL，以及对应的处理类</p></li>
+
+<li><p>ExchangeClient    请求方，请求URL，以及返回信息的处理类</p></li>
+
+<li><p>ExchangeHandler   处理交互的消息，真正的请求回复处理,由对应的协议实现处理逻辑(如Dubbo,Thrift)，根据请求对象返回异步的CompletableFuture<Object></p></li>
+
+<li><p>Request，Response对象，参考<a href="https://en.wikipedia.org/wiki/Request–response">Request–response</a>模式，定义了请求模型，支持多种请求类型two way,event,broker,heartbeat等</p></li>
+
+<li><p>ExchangeChannel  定义了通讯的模型，channel有对应的handler,继承了Channel，从定义可以看出，ExchangeChannel定义的是交换的异步模型，新增了request,response方法，每个请求或者回复，返回都是RequestFuture / ResponseFuture</p></li>
+
+<li><p>DefaultFuture  默认的ResponseFuture,存放当前的channel和future，通过requestID为key获取，每个request对应一个DefaultFuture,get等待在condition，received会signal对应的condition</p></li>
+
+<li><p>使用时间轮来处理定时器任务，比如超时任务、心跳定时器、重连定时器等，摒弃了默认的timertask</p></li>
+
+<li><p>Exchanger       获取关联的ExchangeServer和ExchangeClient ,默认Exchanger为 HeaderExchanger,代理Transport的Server和Client,HeaderExchangerServer和Client 都首先代理给DecodeHandler，由DecodeHandler完成Decode工作，然后由HeaderExchangeHandler处理,请求解码可在 IO 线程上执行，也可在线程池中执行，这个取决于运行时配置。DecodeHandler 存在的意义就是保证请求或响应对象可在线程池中被解码,其中server和client也封装了心跳逻辑，和通信部分解藕，关注点分离</p></li>
+
+<li><p>HeaderExchangeHandler   connect 交付 handler connect   sent  exchangechannel加入channel属性 receive handler</p></li>
+</ul></li>
+</ol>
+
+<p>### netty实现</p>
+
+<p>以默认netty4实现为例，其他的如mina或者grizzly略过，如果有需要自行查看。</p>
+
+<ul>
+<li>NettyTransport   默认的Transport，bind NettyServer or  NettyClient</li>
+<li>NettyClient   默认的IO线程为当前机器的核数+1和32的小值,配置SO_KEEPLIVE  TCP_NODELAY  ，配置默认缓存分配器为pooled分配器，配置handler为nettyclientHandler并配置对应的编码解码器,netty指定的handler路线为   Multi — HeartBeat — Decode — Biz</li>
+<li>请求报文调用NettyChannel的send ，最后调用channle的writerAndFlush</li>
+<li>应答报文出现 触发channel的channelRead ，调用AbstractPeer的receive方法，指向HeaderExchanage的receive方法，获取对应的DefaultFuture</li>
+<li>NettyServer 配置默认IO线程, 传入decodhandler(exchangehandler(requesthandler)),封装Handler为MultiMessageHandler(HeartBeatHander(AllDispatch(exchange********)))</li>
+<li>NettyServerHandler 处理连接channelActive 获取nettychannel ，放入map  | 接受请求 channelRead 调用handler.receive() ,如果是调用，然后调用requestHandler的 reply方法</li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">zhouxwyeah</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-03-20</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://huajuan.io/tags/dubbo/">Dubbo</a>
+          <a href="http://huajuan.io/tags/rpc/">rpc</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/best-dockerfile/">
+            <span class="next-text nav-default">Dockerfile 最佳实践</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
 
         </div>
       </div>
@@ -469,6 +674,13 @@
 
 <script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 

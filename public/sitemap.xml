@@ -4,7 +4,14 @@
   
   <url>
     <loc>http://huajuan.io/about/</loc>
-    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
+    <lastmod>2019-02-14T21:41:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</loc>
+    <lastmod>2019-03-20T10:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -12,6 +19,12 @@
   <url>
     <loc>http://huajuan.io/post/best-dockerfile/</loc>
     <lastmod>2019-02-15T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/post/es/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,8 +43,22 @@
   </url>
   
   <url>
+    <loc>http://huajuan.io/tags/dubbo/</loc>
+    <lastmod>2019-03-20T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://huajuan.io/post/</loc>
-    <lastmod>2019-02-15T10:01:23+08:00</lastmod>
+    <lastmod>2019-03-20T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/tags/rpc/</loc>
+    <lastmod>2019-03-20T10:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -44,6 +71,13 @@
   </url>
   
   <url>
+    <loc>http://huajuan.io/categories/tech/</loc>
+    <lastmod>2019-03-20T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://huajuan.io/tags/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2019-02-15T10:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -51,15 +85,8 @@
   </url>
   
   <url>
-    <loc>http://huajuan.io/categories/%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/</loc>
-    <lastmod>2019-02-15T10:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://huajuan.io/</loc>
-    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
+    <lastmod>2019-02-14T21:41:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
