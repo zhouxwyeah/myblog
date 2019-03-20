@@ -45,4 +45,3 @@ Docker 官方有关于Dockerfile最佳实践的一些推荐,包含使用规则�
     - ONBUILD
 * 官方repo
 * 其他资源
- 
