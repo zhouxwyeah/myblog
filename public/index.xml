@@ -6,7 +6,7 @@
     <description>Recent content on 羊 花卷 小鱼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Feb 2019 21:38:52 +0800</lastBuildDate>
     
         <atom:link href="http://huajuan.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,15 +14,116 @@
     <item>
       <title>About</title>
       <link>http://huajuan.io/about/</link>
-      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
+      <pubDate>Thu, 14 Feb 2019 21:38:52 +0800</pubDate>
       
       <guid>http://huajuan.io/about/</guid>
       
         <description>&lt;p&gt;10余年魔都程序员，熟悉银行领域，熟悉java , 偶尔写写 python,go,js&lt;/p&gt;
 
-&lt;p&gt;国米球迷，电竞爱好者，看各类电竞比赛，暴雪粉丝，FM玩家，叶公好主机，有两娃，没太多时间玩了&lt;/p&gt;
+&lt;p&gt;国米球迷，电竞爱好者，看各类电竞比赛，暴雪粉丝，FM玩家，叶公好主机，有两娃，没太多时间玩,偶尔摸摸switch&lt;/p&gt;
 
 &lt;p&gt;兴趣广泛，好读书，不求甚解&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Dubbo remoting 源码阅读笔记</title>
+      <link>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</link>
+      <pubDate>Wed, 20 Mar 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</guid>
+      
+        <description>
+
+&lt;p&gt;#Dubbo源码阅读 —  remoting&lt;/p&gt;
+
+&lt;p&gt;Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个分析这个模块的职责和设计，然后再从整体入手，看看整个框架的整体设计，首先选择的是remoting模块，了解一下作为一个RPC框架网络部分的设计思路：&lt;/p&gt;
+
+&lt;p&gt;先上图吧，网络部分初始化和server/client流程：&lt;/p&gt;
+
+&lt;h4 id=&#34;初始化&#34;&gt;初始化&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;./image-20190320081611898.png&#34; alt=&#34;image-20190320081611898&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;server&#34;&gt;server&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;image-20190320111600853.png&#34; alt=&#34;image-20190320111600853&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;client&#34;&gt;client&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;image-20190320114311471.png&#34; alt=&#34;image-20190320114311471&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;remoting-api设计&#34;&gt;Remoting API设计&lt;/h3&gt;
+
+&lt;p&gt;API定义了远程通讯的领域对象，其实spring cloud的做法也是类似，定义远程通信行为，而隐藏实现，以便可以方便的切换实现，我们来看下RPC框架的remoting应该一些常见角色：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;api 首先定义远程通讯的通用模型&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Endpoint  所有的remoting都是一个端点，每个端点都包含URL,handler,发送&lt;/li&gt;
+&lt;li&gt;Server     远程服务端,拥有所有的连接、&lt;/li&gt;
+&lt;li&gt;Client      远程客户端&lt;/li&gt;
+&lt;li&gt;Channel  一条传输通道&lt;/li&gt;
+&lt;li&gt;ChannelHandler  通讯处理类，包含 收、发、连接、断链等通用操作，典型&lt;strong&gt;装饰者模式&lt;/strong&gt;，支持增强handler的能力&lt;/li&gt;
+&lt;li&gt;Dispatch   事件派发器，处理事件的入口，由Dispatch调用handler处理event&lt;/li&gt;
+&lt;li&gt;Buffer         IO&lt;/li&gt;
+&lt;li&gt;Codec        编码解码&lt;/li&gt;
+&lt;li&gt;Transport  传输层的定义，通过SPI获取对应的transport,然后通过transport绑定server，或者发起连接Client&lt;/li&gt;
+&lt;li&gt;Transports  定义了Transport的facade方法，如果传入多个handlers，使用ChannelHandlerDispatch&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;transport  定义网络传输基础模型的抽象业务逻辑&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AbstractPeer   抽象的peer，具备一般收发、关闭的能力&lt;/li&gt;
+&lt;li&gt;AbstractEndpoint  增加了 codec&lt;/li&gt;
+&lt;li&gt;AbstractServer     指定了InetSocketAddress ,以及指定了ExecutorService,定义了IdleTimeout、最大连接数，open ,  disconnect服务&lt;/li&gt;
+&lt;li&gt;AbstractClient      含定时重连服务、ExecutorService，url指定线程名称，连接时启动检查的定时任务，在连接关闭时，销毁连接检查服务,连接、关闭等服务&lt;/li&gt;
+&lt;li&gt;AbstractCodec      payload检查，序列化类的注入&lt;/li&gt;
+&lt;li&gt;ChannelHandlerDispatch   Dispatch调用对应的Handler,handler链式调用，支持新增或者删除handler，使用CopyOnWriterList实现&lt;/li&gt;
+&lt;li&gt;ChannelHandlers   链式包含  批量消息处理、心跳消息处理、之后才是业务消息Dispatch，使用默认的Dispatch派发事件和Handler&lt;/li&gt;
+&lt;li&gt;DecodeHandler 编码解码处理器，会作为最顶层处理器注入到server&lt;/li&gt;
+&lt;li&gt;Dispatch 服务端事件派发模型   All 全部线程池处理    Direct IO线程处理    Message请求响应都是线程池，其他IO线程处理  Execute 请求线程池处理 Dispatch的线程池对应Reactor中的业务线程&lt;/li&gt;
+&lt;li&gt;ChannelEventRunner    Event异步task&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;exchange 在传统的网络通讯的基础上，定义信息交换的方式，采用了&lt;a href=&#34;https://en.wikipedia.org/wiki/Messaging_pattern&#34;&gt;消息交换模式&lt;/a&gt;描述整套远程信息交互方式，具有以下角色：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ExchangeServer   服务端绑定URL，以及对应的处理类&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ExchangeClient    请求方，请求URL，以及返回信息的处理类&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ExchangeHandler   处理交互的消息，真正的请求回复处理,由对应的协议实现处理逻辑(如Dubbo,Thrift)，根据请求对象返回异步的CompletableFuture&lt;Object&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Request，Response对象，参考&lt;a href=&#34;https://en.wikipedia.org/wiki/Request–response&#34;&gt;Request–response&lt;/a&gt;模式，定义了请求模型，支持多种请求类型two way,event,broker,heartbeat等&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ExchangeChannel  定义了通讯的模型，channel有对应的handler,继承了Channel，从定义可以看出，ExchangeChannel定义的是交换的异步模型，新增了request,response方法，每个请求或者回复，返回都是RequestFuture / ResponseFuture&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;DefaultFuture  默认的ResponseFuture,存放当前的channel和future，通过requestID为key获取，每个request对应一个DefaultFuture,get等待在condition，received会signal对应的condition&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用时间轮来处理定时器任务，比如超时任务、心跳定时器、重连定时器等，摒弃了默认的timertask&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Exchanger       获取关联的ExchangeServer和ExchangeClient ,默认Exchanger为 HeaderExchanger,代理Transport的Server和Client,HeaderExchangerServer和Client 都首先代理给DecodeHandler，由DecodeHandler完成Decode工作，然后由HeaderExchangeHandler处理,请求解码可在 IO 线程上执行，也可在线程池中执行，这个取决于运行时配置。DecodeHandler 存在的意义就是保证请求或响应对象可在线程池中被解码,其中server和client也封装了心跳逻辑，和通信部分解藕，关注点分离&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;HeaderExchangeHandler   connect 交付 handler connect   sent  exchangechannel加入channel属性 receive handler&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;### netty实现&lt;/p&gt;
+
+&lt;p&gt;以默认netty4实现为例，其他的如mina或者grizzly略过，如果有需要自行查看。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NettyTransport   默认的Transport，bind NettyServer or  NettyClient&lt;/li&gt;
+&lt;li&gt;NettyClient   默认的IO线程为当前机器的核数+1和32的小值,配置SO_KEEPLIVE  TCP_NODELAY  ，配置默认缓存分配器为pooled分配器，配置handler为nettyclientHandler并配置对应的编码解码器,netty指定的handler路线为   Multi — HeartBeat — Decode — Biz&lt;/li&gt;
+&lt;li&gt;请求报文调用NettyChannel的send ，最后调用channle的writerAndFlush&lt;/li&gt;
+&lt;li&gt;应答报文出现 触发channel的channelRead ，调用AbstractPeer的receive方法，指向HeaderExchanage的receive方法，获取对应的DefaultFuture&lt;/li&gt;
+&lt;li&gt;NettyServer 配置默认IO线程, 传入decodhandler(exchangehandler(requesthandler)),封装Handler为MultiMessageHandler(HeartBeatHander(AllDispatch(exchange********)))&lt;/li&gt;
+&lt;li&gt;NettyServerHandler 处理连接channelActive 获取nettychannel ，放入map  | 接受请求 channelRead 调用handler.receive() ,如果是调用，然后调用requestHandler的 reply方法&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>
@@ -34,7 +135,104 @@
       
       <guid>http://huajuan.io/post/best-dockerfile/</guid>
       
-        <description>&lt;p&gt;Docker 官方有关于Dockerfile最佳实践的一些推荐,有兴趣可查看链接 &lt;a href=&#34;https://docs.docker.com/v17.09/engine/userguide/eng-image/dockerfile_best-practices/&#34;&gt;最佳实践&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;Docker 官方有关于Dockerfile最佳实践的一些推荐,包含使用规则，以及指令的正确用法,有兴趣可查看链接 &lt;a href=&#34;https://docs.docker.com/v17.09/engine/userguide/eng-image/dockerfile_best-practices/&#34;&gt;最佳实践&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通用规则
+
+&lt;ul&gt;
+&lt;li&gt;容器应该是短暂的&lt;/li&gt;
+&lt;li&gt;使用dockerignore文件&lt;/li&gt;
+&lt;li&gt;使用multi-stage构建&lt;/li&gt;
+&lt;li&gt;避免安装不需要的包&lt;/li&gt;
+&lt;li&gt;每个容器应该只关注一个点&lt;/li&gt;
+&lt;li&gt;减少layer的数量&lt;/li&gt;
+&lt;li&gt;多利用build cache&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Dockerfile指令
+
+&lt;ul&gt;
+&lt;li&gt;FROM&lt;/li&gt;
+&lt;li&gt;LABEL&lt;/li&gt;
+&lt;li&gt;RUN&lt;/li&gt;
+&lt;li&gt;CMD&lt;/li&gt;
+&lt;li&gt;EXPOSE&lt;/li&gt;
+&lt;li&gt;ENV&lt;/li&gt;
+&lt;li&gt;ADD or COPY&lt;/li&gt;
+&lt;li&gt;ENTRYPOINT&lt;/li&gt;
+&lt;li&gt;VOLUMN&lt;/li&gt;
+&lt;li&gt;USER&lt;/li&gt;
+&lt;li&gt;WORKDIR&lt;/li&gt;
+&lt;li&gt;ONBUILD&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;官方repo&lt;/li&gt;
+&lt;li&gt;其他资源&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://huajuan.io/post/es/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://huajuan.io/post/es/</guid>
+      
+        <description>
+
+&lt;p&gt;ES&lt;/p&gt;
+
+&lt;p&gt;####倒排索引&lt;/p&gt;
+
+&lt;p&gt;doc id&lt;/p&gt;
+
+&lt;p&gt;分词 term&lt;/p&gt;
+
+&lt;p&gt;term关联  post list&lt;/p&gt;
+
+&lt;p&gt;term dict  排序 二分查找  偏于查找 term,查找读磁盘 【任意byte数组】&lt;/p&gt;
+
+&lt;p&gt;term index  tier树      可加载到内存，快速定位到term的 offset区间，然后查找term dict，减少IO次数&lt;/p&gt;
+
+&lt;p&gt;mysql 只有term dict，查找的磁盘IO次数大于 ES，ES多出了term index二级索引，减少随机读的次数&lt;/p&gt;
+
+&lt;p&gt;term dict还有公共前缀压缩，可以减少空间&lt;/p&gt;
+
+&lt;p&gt;####联合索引&lt;/p&gt;
+
+&lt;p&gt;mysql必须建立&lt;/p&gt;
+
+&lt;p&gt;ES 支持单索引自动合并 AND OR 操作&lt;/p&gt;
+
+&lt;p&gt;skip list（Frame of Reference 压缩）   bitmap(Roaring Bitmap压缩)&lt;/p&gt;
+
+&lt;p&gt;Frame of Reference 编码是如此 高效，对于简单的相等条件的过滤缓存成纯内存的 bitset 还不如需要访问磁盘的 skip list 的方式要快。&lt;/p&gt;
+
+&lt;p&gt;####减少文档数&lt;/p&gt;
+
+&lt;p&gt;将压缩存储序列压缩成一行，分行-列表 ，减少索引尺寸&lt;/p&gt;
+
+&lt;p&gt;父子文档内嵌&lt;/p&gt;
+
+&lt;p&gt;使用了嵌套文档之后，对于 term 的 posting list 只需要保存父文档的 doc id 就可以了，可以比保存所有的数据点的 doc id 要少很多&lt;/p&gt;
+
+&lt;h4 id=&#34;load加载&#34;&gt;LOAD加载&lt;/h4&gt;
+
+&lt;p&gt;非索引 要顺序扫描真个存储&lt;/p&gt;
+
+&lt;p&gt;索引   可能导致大量碎片的随机读&lt;/p&gt;
+
+&lt;p&gt;没有所谓完美的解决方案。MySQL 支持索引，一般索引检索出来的行数也就是在 1~100 条之间。如果索引检索出来很多行，很有可能 MySQL 会选择不使用索引而直接扫描主存储，这就是因为用 row id 去主存储里读取行的内容是碎片化的随机读操作，这在普通磁盘上很慢。&lt;/p&gt;
+
+&lt;p&gt;大量顺序读 不一定比很少的随机读慢&lt;/p&gt;
+
+&lt;p&gt;Elasticsearch/Lucene 的解决办法是让主存储的随机读操作变得很快，从而可以充分利用索引，而不用惧怕从主存储里随机读加载几百万行带来的代价&lt;/p&gt;
+
+&lt;h4 id=&#34;分布式计算&#34;&gt;分布式计算&lt;/h4&gt;
+
+&lt;p&gt;Elasticsearch/Lucene 从最底层就支持数据分片，查询的时候可以自动把不同分片的查询结果合并起来。Elasticsearch 的 document 都有一个 uid，默认策略是按照 uid 的 hash 把文档进行分片。&lt;/p&gt;
 </description>
       
     </item>

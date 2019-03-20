@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rpc on 羊 花卷 小鱼</title>
+    <link>http://huajuan.io/tags/rpc/</link>
+    <description>Recent content in Rpc on 羊 花卷 小鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 20 Mar 2019 10:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://huajuan.io/tags/rpc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dubbo remoting 源码阅读笔记</title>
+      <link>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</link>
+      <pubDate>Wed, 20 Mar 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</guid>
+      <description>#Dubbo源码阅读 — remoting Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个</description>
+    </item>
+    
+  </channel>
+</rss>

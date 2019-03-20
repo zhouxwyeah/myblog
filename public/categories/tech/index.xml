@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech on 羊 花卷 小鱼</title>
+    <link>http://huajuan.io/categories/tech/</link>
+    <description>Recent content in Tech on 羊 花卷 小鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 20 Mar 2019 10:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://huajuan.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dubbo remoting 源码阅读笔记</title>
+      <link>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</link>
+      <pubDate>Wed, 20 Mar 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</guid>
+      <description>#Dubbo源码阅读 — remoting Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个</description>
+    </item>
+    
+    <item>
+      <title>Dockerfile 最佳实践</title>
+      <link>http://huajuan.io/post/best-dockerfile/</link>
+      <pubDate>Fri, 15 Feb 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/best-dockerfile/</guid>
+      <description>Docker 官方有关于Dockerfile最佳实践的一些推荐,包含使用规则，以及指令的正确用法,有兴趣可查看链接 最佳实践 通用规则 容器应该是短暂的 使用d</description>
+    </item>
+    
+  </channel>
+</rss>

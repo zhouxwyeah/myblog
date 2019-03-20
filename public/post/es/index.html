@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>404 page not found - 羊 花卷 小鱼</title>
+  <title> - 羊 花卷 小鱼</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,25 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="bear" />
-  <meta name="description" content="有两娃的程序员一枚" />
+  <meta name="description" content="ES
+####倒排索引
+doc id
+分词 term
+term关联 post list
+term dict 排序 二分查找 偏于查找 term,查找读磁盘 【任意byte数组】
+term index tier树 可加载到内存，快速定位到term的 offset区间，然后查找term dict，减少IO次数
+mysql 只有term dict，查找的磁盘IO次数大于 ES，ES多出了term index二级索引，减少随机读的次数
+term dict还有公共前缀压缩，可以减少空间
+####联合索引
+mysql必须建立
+ES 支持单索引自动合并 AND OR 操作
+skip list（Frame of Reference 压缩） bitmap(Roaring Bitmap压缩)
+Frame of Reference 编码是如此 高效，对于简单的相等条件的过滤缓存成纯内存的 bitset 还不如需要访问磁盘的 skip list 的方式要快。
+####减少文档数
+将压缩存储序列压缩成一行，分行-列表 ，减少索引尺寸
+父子文档内嵌
+使用了嵌套文档之后，对于 term 的 posting list 只需要保存父文档的 doc id 就可以了，可以比保存所有的数据点的 doc id 要少很多" />
+
   <meta name="keywords" content="java, programing, python, note" />
 
 
@@ -34,7 +52,7 @@
 <meta name="generator" content="Hugo 0.54.0" />
 
 
-<link rel="canonical" href="" />
+<link rel="canonical" href="http://huajuan.io/post/es/" />
 
 
 
@@ -56,18 +74,76 @@
 
 
 
-<meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="有两娃的程序员一枚" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="ES
+####倒排索引
+doc id
+分词 term
+term关联 post list
+term dict 排序 二分查找 偏于查找 term,查找读磁盘 【任意byte数组】
+term index tier树 可加载到内存，快速定位到term的 offset区间，然后查找term dict，减少IO次数
+mysql 只有term dict，查找的磁盘IO次数大于 ES，ES多出了term index二级索引，减少随机读的次数
+term dict还有公共前缀压缩，可以减少空间
+####联合索引
+mysql必须建立
+ES 支持单索引自动合并 AND OR 操作
+skip list（Frame of Reference 压缩） bitmap(Roaring Bitmap压缩)
+Frame of Reference 编码是如此 高效，对于简单的相等条件的过滤缓存成纯内存的 bitset 还不如需要访问磁盘的 skip list 的方式要快。
+####减少文档数
+将压缩存储序列压缩成一行，分行-列表 ，减少索引尺寸
+父子文档内嵌
+使用了嵌套文档之后，对于 term 的 posting list 只需要保存父文档的 doc id 就可以了，可以比保存所有的数据点的 doc id 要少很多" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://huajuan.io/post/es/" />
 
 
-<meta itemprop="name" content="404 Page not found">
-<meta itemprop="description" content="有两娃的程序员一枚">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="ES
+####倒排索引
+doc id
+分词 term
+term关联 post list
+term dict 排序 二分查找 偏于查找 term,查找读磁盘 【任意byte数组】
+term index tier树 可加载到内存，快速定位到term的 offset区间，然后查找term dict，减少IO次数
+mysql 只有term dict，查找的磁盘IO次数大于 ES，ES多出了term index二级索引，减少随机读的次数
+term dict还有公共前缀压缩，可以减少空间
+####联合索引
+mysql必须建立
+ES 支持单索引自动合并 AND OR 操作
+skip list（Frame of Reference 压缩） bitmap(Roaring Bitmap压缩)
+Frame of Reference 编码是如此 高效，对于简单的相等条件的过滤缓存成纯内存的 bitset 还不如需要访问磁盘的 skip list 的方式要快。
+####减少文档数
+将压缩存储序列压缩成一行，分行-列表 ，减少索引尺寸
+父子文档内嵌
+使用了嵌套文档之后，对于 term 的 posting list 只需要保存父文档的 doc id 就可以了，可以比保存所有的数据点的 doc id 要少很多">
 
+
+
+<meta itemprop="wordCount" content="98">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="有两娃的程序员一枚"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="ES
+####倒排索引
+doc id
+分词 term
+term关联 post list
+term dict 排序 二分查找 偏于查找 term,查找读磁盘 【任意byte数组】
+term index tier树 可加载到内存，快速定位到term的 offset区间，然后查找term dict，减少IO次数
+mysql 只有term dict，查找的磁盘IO次数大于 ES，ES多出了term index二级索引，减少随机读的次数
+term dict还有公共前缀压缩，可以减少空间
+####联合索引
+mysql必须建立
+ES 支持单索引自动合并 AND OR 操作
+skip list（Frame of Reference 压缩） bitmap(Roaring Bitmap压缩)
+Frame of Reference 编码是如此 高效，对于简单的相等条件的过滤缓存成纯内存的 bitset 还不如需要访问磁盘的 skip list 的方式要快。
+####减少文档数
+将压缩存储序列压缩成一行，分行-列表 ，减少索引尺寸
+父子文档内嵌
+使用了嵌套文档之后，对于 term 的 posting list 只需要保存父文档的 doc id 就可以了，可以比保存所有的数据点的 doc id 要少很多"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -318,21 +394,171 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<div class="not-found">
-  <h1 class="error-emoji"></h1>
-  <p class="error-text">/* 404 page not found. */</p>
-  <p class="error-link"><a href="/">↑ Back Home ↑</a></p>
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#load加载">LOAD加载</a></li>
+<li><a href="#分布式计算">分布式计算</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
 </div>
-<script>
-  var errorEmojiContainer = document.getElementsByClassName('error-emoji')[0];
-  var emojiArray = [
-    '\\(o_o)/', '(o^^)o', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)',
-    '(=\'X\'=)', '(>_<)', '(;-;)', '\\(^Д^)/',
-  ];
-  var errorEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length)];
-  errorEmojiContainer.appendChild(document.createTextNode(errorEmoji));
-</script>
+
+    
+    <div class="post-content">
+      
+
+<p>ES</p>
+
+<p>####倒排索引</p>
+
+<p>doc id</p>
+
+<p>分词 term</p>
+
+<p>term关联  post list</p>
+
+<p>term dict  排序 二分查找  偏于查找 term,查找读磁盘 【任意byte数组】</p>
+
+<p>term index  tier树      可加载到内存，快速定位到term的 offset区间，然后查找term dict，减少IO次数</p>
+
+<p>mysql 只有term dict，查找的磁盘IO次数大于 ES，ES多出了term index二级索引，减少随机读的次数</p>
+
+<p>term dict还有公共前缀压缩，可以减少空间</p>
+
+<p>####联合索引</p>
+
+<p>mysql必须建立</p>
+
+<p>ES 支持单索引自动合并 AND OR 操作</p>
+
+<p>skip list（Frame of Reference 压缩）   bitmap(Roaring Bitmap压缩)</p>
+
+<p>Frame of Reference 编码是如此 高效，对于简单的相等条件的过滤缓存成纯内存的 bitset 还不如需要访问磁盘的 skip list 的方式要快。</p>
+
+<p>####减少文档数</p>
+
+<p>将压缩存储序列压缩成一行，分行-列表 ，减少索引尺寸</p>
+
+<p>父子文档内嵌</p>
+
+<p>使用了嵌套文档之后，对于 term 的 posting list 只需要保存父文档的 doc id 就可以了，可以比保存所有的数据点的 doc id 要少很多</p>
+
+<h4 id="load加载">LOAD加载</h4>
+
+<p>非索引 要顺序扫描真个存储</p>
+
+<p>索引   可能导致大量碎片的随机读</p>
+
+<p>没有所谓完美的解决方案。MySQL 支持索引，一般索引检索出来的行数也就是在 1~100 条之间。如果索引检索出来很多行，很有可能 MySQL 会选择不使用索引而直接扫描主存储，这就是因为用 row id 去主存储里读取行的内容是碎片化的随机读操作，这在普通磁盘上很慢。</p>
+
+<p>大量顺序读 不一定比很少的随机读慢</p>
+
+<p>Elasticsearch/Lucene 的解决办法是让主存储的随机读操作变得很快，从而可以充分利用索引，而不用惧怕从主存储里随机读加载几百万行带来的代价</p>
+
+<h4 id="分布式计算">分布式计算</h4>
+
+<p>Elasticsearch/Lucene 从最底层就支持数据分片，查询的时候可以自动把不同分片的查询结果合并起来。Elasticsearch 的 document 都有一个 uid，默认策略是按照 uid 的 hash 把文档进行分片。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">bear</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/best-dockerfile/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Dockerfile 最佳实践</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
 
         </div>
       </div>
