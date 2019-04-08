@@ -69,6 +69,11 @@ java.net.preferIPv6Stack=<true|false> 默认false
 | V4 V6 | 兼容   | 兼容  | 兼容   |
 | V6    | 不兼容 | 兼容  | 兼容   |
 
+双栈节点，是能够和v4 only,v6 only通讯的，例如host1,host2
+
+* host1 server,host2 client, 如果host2请求host1,他会建立V6 socket，然后查看host1的ip，如果host1只支持v4 协议栈,他将查看name serviced的ipv4条目，host2将使用ipv4-mapped地址请求host1,一个v4的包将由host2发出，host1也以为他通讯的是v4客户端。
+* host1 client ,host2 server, host2 是server,首先建立v6 socket，等待链接。host只支持v4，建立v4 socket，他解析域名，获得host2 v4的 IP，使用v4地址链接host2, host2将v4 packet转为ipv4-mapped，应用程序依然处理v6请求一样处理v4链接
+
 ##### 获取IP
 
 JAVA获取IP，通过nameservice，可以指定对应的nameservice provider 。
@@ -86,3 +91,12 @@ NIS有多个provider,按照顺序配置，根据优先级依次查找
 指定DNS的域名
 
  `sun.net.spi.nameservice.domain=<domainname>`
+
+#### 应用改造的影响
+
+* 长度，对于数据库长度的字段的变化，很多时候我们会存储ip地址，v6的升级，数据库字段首先被影响
+* 网络程序，尽量支持双栈。 里面是否有绑定IP，如果有，需要判断是否支持V6流量的接入。
+* 操作系统，需要配置V6的IP
+* 应用程序逻辑，是否有根据IPv4的格式去判断ipv6，需要兼容IPv6
+* 运维工具，是否有关于ip的配置和限制
+* 第三方包，需要验证对于ipv6的兼容性
