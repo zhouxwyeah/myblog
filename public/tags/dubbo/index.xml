@@ -5,7 +5,7 @@
     <link>http://huajuan.io/tags/dubbo/</link>
     <description>Recent content in Dubbo on 羊 花卷 小鱼</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Wed, 20 Mar 2019 10:01:23 +0800</lastBuildDate>
     
 	<atom:link href="http://huajuan.io/tags/dubbo/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <pubDate>Wed, 20 Mar 2019 10:01:23 +0800</pubDate>
       
       <guid>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</guid>
-      <description>#Dubbo源码阅读 — remoting Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个</description>
+      <description>Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个分析这个模块的职责和设计</description>
     </item>
     
   </channel>

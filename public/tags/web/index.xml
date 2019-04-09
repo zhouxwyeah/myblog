@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on 羊 花卷 小鱼</title>
+    <link>http://huajuan.io/tags/web/</link>
+    <description>Recent content in web on 羊 花卷 小鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 23 Mar 2019 10:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://huajuan.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web性能权威指南阅读笔记</title>
+      <link>http://huajuan.io/post/web-performance-readnote/</link>
+      <pubDate>Sat, 23 Mar 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/web-performance-readnote/</guid>
+      <description>以下笔记来自web性能权威指南 网络 延迟 延迟才是性能的关键，大部分时候带宽都不是瓶颈，任何时候，网络传输的性能都是不能忽略的。 客户端到服务端延</description>
+    </item>
+    
+  </channel>
+</rss>

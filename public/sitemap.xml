@@ -10,6 +10,34 @@
   </url>
   
   <url>
+    <loc>http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2019-04-09T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/post/ipv6-note/</loc>
+    <lastmod>2019-04-08T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/post/reactive-steam/</loc>
+    <lastmod>2019-04-05T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/post/web-performance-readnote/</loc>
+    <lastmod>2019-03-23T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</loc>
     <lastmod>2019-03-20T10:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -24,7 +52,7 @@
   </url>
   
   <url>
-    <loc>http://huajuan.io/post/es/</loc>
+    <loc>http://huajuan.io/post/untitled/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -51,14 +79,7 @@
   
   <url>
     <loc>http://huajuan.io/post/</loc>
-    <lastmod>2019-03-20T10:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://huajuan.io/tags/rpc/</loc>
-    <lastmod>2019-03-20T10:01:23+08:00</lastmod>
+    <lastmod>2019-04-09T10:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -71,8 +92,64 @@
   </url>
   
   <url>
-    <loc>http://huajuan.io/categories/tech/</loc>
+    <loc>http://huajuan.io/tags/devops/</loc>
+    <lastmod>2019-04-09T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/categories/devops/</loc>
+    <lastmod>2019-04-09T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/tags/ipv6/</loc>
+    <lastmod>2019-04-08T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/tags/performance/</loc>
+    <lastmod>2019-03-23T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/tags/reactive/</loc>
+    <lastmod>2019-04-05T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/tags/rpc/</loc>
     <lastmod>2019-03-20T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/categories/tech/</loc>
+    <lastmod>2019-04-08T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/tags/web/</loc>
+    <lastmod>2019-03-23T10:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://huajuan.io/tags/webflux/</loc>
+    <lastmod>2019-04-05T10:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

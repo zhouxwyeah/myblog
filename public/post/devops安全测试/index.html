@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Devops安全测试 - 羊 花卷 小鱼</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="zhouxwyeah" /><meta name="description" content="Devops安全测试" /><meta name="keywords" content="java, programing, python, note" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Devops安全测试" />
+<meta property="og:description" content="Devops安全测试" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" />
+<meta property="article:published_time" content="2019-04-09T10:01:23&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-09T10:01:23&#43;08:00"/>
+
+<meta itemprop="name" content="Devops安全测试">
+<meta itemprop="description" content="Devops安全测试">
+
+
+<meta itemprop="datePublished" content="2019-04-09T10:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-09T10:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="289">
+
+
+
+<meta itemprop="keywords" content="devops," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Devops安全测试"/>
+<meta name="twitter:description" content="Devops安全测试"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Lok&#39;Tar oga</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="http://huajuan.io/index.html">
+        <li class="mobile-menu-item">RSS</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Lok&#39;Tar oga</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://huajuan.io/index.html">RSS</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Devops安全测试</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-09 </span>
+        <div class="post-category">
+            <a href="/categories/devops/"> devops </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#渗透测试的问题">渗透测试的问题</a></li>
+<li><a href="#介入时机">介入时机</a></li>
+<li><a href="#devops">Devops</a></li>
+<li><a href="#工具链">工具链</a>
+<ul>
+<li><a href="#代码构建阶段">代码构建阶段</a></li>
+<li><a href="#容器构建阶段">容器构建阶段</a></li>
+<li><a href="#uat-生产阶段">UAT/生产阶段</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><a href="https://slides.com/kiview/securitytesting-greach#/">AutomatedSecurityTesting</a>思路不错，里面的流程和pipeline，以及工具链可以参考，集成到现有的devops流程里面去。</p>
+
+<p>下面针对slide的一些笔记。</p>
+
+<h4 id="渗透测试的问题">渗透测试的问题</h4>
+
+<ul>
+<li>介入太早  没有生产级别可测试</li>
+<li>介入太晚，影响进度</li>
+</ul>
+
+<h4 id="介入时机">介入时机</h4>
+
+<ul>
+<li>集成安全到devops流程</li>
+<li>工具化</li>
+<li>对于复杂案例使用渗透测试</li>
+<li>培养开发的安全意识</li>
+</ul>
+
+<h4 id="devops">Devops</h4>
+
+<ul>
+<li>传统devops</li>
+</ul>
+
+<p><img src="/Users/zhougarfield/Develop/myblog/content/post/images/image-20190409122622023.png" alt="image-20190409122622023" /></p>
+
+<ul>
+<li>集成安全的devops</li>
+</ul>
+
+<p><img src="/Users/zhougarfield/Develop/myblog/content/post/images/image-20190409122555646.png" alt="image-20190409122555646" /></p>
+
+<h4 id="工具链">工具链</h4>
+
+<h5 id="代码构建阶段">代码构建阶段</h5>
+
+<ul>
+<li><p>目标</p>
+
+<ul>
+<li>源代码</li>
+<li>字节码</li>
+<li>依赖包</li>
+</ul></li>
+
+<li><p>工具</p>
+
+<ul>
+<li>依赖分析</li>
+</ul></li>
+</ul>
+
+<p>商业： synk      blackducksoftware</p>
+
+<p>开源    <strong>DependencyCheck</strong></p>
+
+<ul>
+<li><p>静态代码安全扫描</p>
+
+<p>通用的sonar pde checkstyle findbugs</p>
+
+<p>商业  veracode   checkmax   mircofocus</p>
+
+<p>开源 spotbugs(java)  find-sec-bugs(java web, android)</p></li>
+</ul>
+
+<h5 id="容器构建阶段">容器构建阶段</h5>
+
+<ul>
+<li><p>容器脆弱性扫描</p>
+
+<ul>
+<li>开源</li>
+</ul></li>
+</ul>
+
+<p>clair</p>
+
+<ul>
+<li>商业</li>
+</ul>
+
+<p>layeredinsight</p>
+
+<p>docker ee</p>
+
+<h5 id="uat-生产阶段">UAT/生产阶段</h5>
+
+<ul>
+<li>动态扫描</li>
+<li>owsap top 10</li>
+<li>工具
+
+<ul>
+<li>开源 zaproxy</li>
+<li>商业 portswigger   有社区版</li>
+</ul></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">zhouxwyeah</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-09
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/devops/">devops</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/ipv6-note/">
+            <span class="next-text nav-default">java ipv6网络用户指南</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zhouxwyeah@163.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/zhouxwyeah" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/zhouxwyeah" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/zhouxwyeah" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/people/garfiled/" class="iconfont icon-douban" title="douban"></a>
+  <a href="http://huajuan.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bear</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

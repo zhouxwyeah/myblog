@@ -15,7 +15,7 @@ pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
 hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-paginate = 5                                              # 首页每页显示的文章数
+paginate = 10                                              # 首页每页显示的文章数
 disqusShortname = ""      # disqus_shortname
 googleAnalytics = ""      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
@@ -69,7 +69,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   description = "有两娃的程序员一枚"
 
   # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
-  archivePaginate = 5
+  archivePaginate = 10
 
   # show 'xx Posts In Total' in archive page ?            # 是否在归档页显示文章的总数
   showArchiveCount = false
@@ -81,7 +81,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   moreMeta = false
 
   # Syntax highlighting by highlight.js
-  highlightInClient = false
+  highlightInClient = true
 
   # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
   # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
@@ -156,7 +156,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     options = ""            # default: "{theme: 'simple'}"
 
   [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
-    enable = false
+    enable = true
     siteUV = true
     sitePV = true
     pagePV = true
@@ -172,7 +172,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     g-github = "https://github.com/zhouxwyeah"
     i-zhihu = "https://www.zhihu.com/people/zhouxwyeah"
     j-douban = "https://www.douban.com/people/garfiled/"
-    
+
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
   [privacy.googleAnalytics]

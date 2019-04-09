@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ipv6 on 羊 花卷 小鱼</title>
+    <link>http://huajuan.io/tags/ipv6/</link>
+    <description>Recent content in ipv6 on 羊 花卷 小鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 08 Apr 2019 10:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://huajuan.io/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>java ipv6网络用户指南</title>
+      <link>http://huajuan.io/post/ipv6-note/</link>
+      <pubDate>Mon, 08 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/ipv6-note/</guid>
+      <description>国内工信部的推进下，各大公司应用纷纷支持IPV6，人行也发文要求金融机构应用支持IPV6，本文参考网络IPV6用户指南;分析ipv6对于应用</description>
+    </item>
+    
+  </channel>
+</rss>

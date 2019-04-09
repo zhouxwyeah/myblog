@@ -5,11 +5,47 @@
     <link>http://huajuan.io/post/</link>
     <description>Recent content in Posts on 羊 花卷 小鱼</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Mar 2019 10:01:23 +0800</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Apr 2019 10:01:23 +0800</lastBuildDate>
     
 	<atom:link href="http://huajuan.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Devops安全测试</title>
+      <link>http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Tue, 09 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</guid>
+      <description>AutomatedSecurityTesting思路不错，里面的流程和pipeline，以及工具链可以参考，集成到现有的devops流程里面</description>
+    </item>
+    
+    <item>
+      <title>java ipv6网络用户指南</title>
+      <link>http://huajuan.io/post/ipv6-note/</link>
+      <pubDate>Mon, 08 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/ipv6-note/</guid>
+      <description>国内工信部的推进下，各大公司应用纷纷支持IPV6，人行也发文要求金融机构应用支持IPV6，本文参考网络IPV6用户指南;分析ipv6对于应用</description>
+    </item>
+    
+    <item>
+      <title>Reactive Steam笔记</title>
+      <link>http://huajuan.io/post/reactive-steam/</link>
+      <pubDate>Fri, 05 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/reactive-steam/</guid>
+      <description>本文是对于reactor的学习笔记. RxJava 最早了解反应式编程，更多的是用在客户端或者WEB，对应事件和数据流的响应，听起来很自然，也合情合理。后</description>
+    </item>
+    
+    <item>
+      <title>Web性能权威指南阅读笔记</title>
+      <link>http://huajuan.io/post/web-performance-readnote/</link>
+      <pubDate>Sat, 23 Mar 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/web-performance-readnote/</guid>
+      <description>以下笔记来自web性能权威指南 网络 延迟 延迟才是性能的关键，大部分时候带宽都不是瓶颈，任何时候，网络传输的性能都是不能忽略的。 客户端到服务端延</description>
+    </item>
     
     <item>
       <title>Dubbo remoting 源码阅读笔记</title>
@@ -17,7 +53,7 @@
       <pubDate>Wed, 20 Mar 2019 10:01:23 +0800</pubDate>
       
       <guid>http://huajuan.io/post/rpc-source-compare-dubbo-remoting/</guid>
-      <description>#Dubbo源码阅读 — remoting Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个</description>
+      <description>Dubbo设计思路很好，一直想阅读源码来着，而且dubbo的模块划分也很清晰，职责明确，这次准备从一些常用的模块逐个分析这个模块的职责和设计</description>
     </item>
     
     <item>
@@ -31,28 +67,11 @@
     
     <item>
       <title></title>
-      <link>http://huajuan.io/post/es/</link>
+      <link>http://huajuan.io/post/untitled/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://huajuan.io/post/es/</guid>
-      <description>ES
-####倒排索引
-doc id
-分词 term
-term关联 post list
-term dict 排序 二分查找 偏于查找 term,查找读磁盘 【任意byte数组】
-term index tier树 可加载到内存，快速定位到term的 offset区间，然后查找term dict，减少IO次数
-mysql 只有term dict，查找的磁盘IO次数大于 ES，ES多出了term index二级索引，减少随机读的次数
-term dict还有公共前缀压缩，可以减少空间
-####联合索引
-mysql必须建立
-ES 支持单索引自动合并 AND OR 操作
-skip list（Frame of Reference 压缩） bitmap(Roaring Bitmap压缩)
-Frame of Reference 编码是如此 高效，对于简单的相等条件的过滤缓存成纯内存的 bitset 还不如需要访问磁盘的 skip list 的方式要快。
-####减少文档数
-将压缩存储序列压缩成一行，分行-列表 ，减少索引尺寸
-父子文档内嵌
-使用了嵌套文档之后，对于 term 的 posting list 只需要保存父文档的 doc id 就可以了，可以比保存所有的数据点的 doc id 要少很多</description>
+      <guid>http://huajuan.io/post/untitled/</guid>
+      <description></description>
     </item>
     
   </channel>

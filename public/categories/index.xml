@@ -5,15 +5,24 @@
     <link>http://huajuan.io/categories/</link>
     <description>Recent content in Categories on 羊 花卷 小鱼</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     
 	<atom:link href="http://huajuan.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Tech</title>
+      <title>devops</title>
+      <link>http://huajuan.io/categories/devops/</link>
+      <pubDate>Tue, 09 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
       <link>http://huajuan.io/categories/tech/</link>
-      <pubDate>Wed, 20 Mar 2019 10:01:23 +0800</pubDate>
+      <pubDate>Mon, 08 Apr 2019 10:01:23 +0800</pubDate>
       
       <guid>http://huajuan.io/categories/tech/</guid>
       <description></description>
