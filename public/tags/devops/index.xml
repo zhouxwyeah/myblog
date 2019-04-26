@@ -13,10 +13,10 @@
     
     <item>
       <title>Devops安全测试</title>
-      <link>http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</link>
+      <link>http://huajuan.io/post/devops-security/</link>
       <pubDate>Tue, 09 Apr 2019 10:01:23 +0800</pubDate>
       
-      <guid>http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</guid>
+      <guid>http://huajuan.io/post/devops-security/</guid>
       <description>AutomatedSecurityTesting思路不错，里面的流程和pipeline，以及工具链可以参考，集成到现有的devops流程里面</description>
     </item>
     

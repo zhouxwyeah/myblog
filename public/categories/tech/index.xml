@@ -6,10 +6,19 @@
     <description>Recent content in tech on 羊 花卷 小鱼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 08 Apr 2019 10:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2019 10:01:23 +0800</lastBuildDate>
     
 	<atom:link href="http://huajuan.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>缓存阅读笔记</title>
+      <link>http://huajuan.io/post/cache-readnote/</link>
+      <pubDate>Fri, 26 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/cache-readnote/</guid>
+      <description>某位大佬说过，性能优化就是找到性能热点，优化算法，如果无法再优化，空间换时间，而空间换时间，一般就是缓存 本文关于缓存方面的阅读笔记，希望通过</description>
+    </item>
     
     <item>
       <title>java ipv6网络用户指南</title>

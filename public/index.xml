@@ -21,11 +21,20 @@
     </item>
     
     <item>
+      <title>缓存阅读笔记</title>
+      <link>http://huajuan.io/post/cache-readnote/</link>
+      <pubDate>Fri, 26 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/cache-readnote/</guid>
+      <description>某位大佬说过，性能优化就是找到性能热点，优化算法，如果无法再优化，空间换时间，而空间换时间，一般就是缓存 本文关于缓存方面的阅读笔记，希望通过</description>
+    </item>
+    
+    <item>
       <title>Devops安全测试</title>
-      <link>http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</link>
+      <link>http://huajuan.io/post/devops-security/</link>
       <pubDate>Tue, 09 Apr 2019 10:01:23 +0800</pubDate>
       
-      <guid>http://huajuan.io/post/devops%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</guid>
+      <guid>http://huajuan.io/post/devops-security/</guid>
       <description>AutomatedSecurityTesting思路不错，里面的流程和pipeline，以及工具链可以参考，集成到现有的devops流程里面</description>
     </item>
     
@@ -72,15 +81,6 @@
       
       <guid>http://huajuan.io/post/best-dockerfile/</guid>
       <description>Docker 官方有关于Dockerfile最佳实践的一些推荐,包含使用规则，以及指令的正确用法,有兴趣可查看链接 最佳实践 通用规则 容器应该是短暂的 使用d</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://huajuan.io/post/untitled/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://huajuan.io/post/untitled/</guid>
-      <description></description>
     </item>
     
   </channel>

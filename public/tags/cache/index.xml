@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cache on 羊 花卷 小鱼</title>
+    <link>http://huajuan.io/tags/cache/</link>
+    <description>Recent content in cache on 羊 花卷 小鱼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Apr 2019 10:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://huajuan.io/tags/cache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>缓存阅读笔记</title>
+      <link>http://huajuan.io/post/cache-readnote/</link>
+      <pubDate>Fri, 26 Apr 2019 10:01:23 +0800</pubDate>
+      
+      <guid>http://huajuan.io/post/cache-readnote/</guid>
+      <description>某位大佬说过，性能优化就是找到性能热点，优化算法，如果无法再优化，空间换时间，而空间换时间，一般就是缓存 本文关于缓存方面的阅读笔记，希望通过</description>
+    </item>
+    
+  </channel>
+</rss>
